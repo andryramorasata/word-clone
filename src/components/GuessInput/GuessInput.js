@@ -1,22 +1,13 @@
 import React from 'react';
 
-function GuessInput({ guess, setGuess, guesses, setGuesses }) {
+function GuessInput({ handleSubmitGuess }) {
+  const [guess, setGuess] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
-    let currentGuess = event.target.value;
-    let savedGuess = [
-      ...guesses,
-      {
-        guess: guess,
-        id: Math.random(),
-      },
-    ];
-
-    setGuesses(savedGuess);
-    setGuess(currentGuess);
+    setGuess(event.target.value);
+    handleSubmitGuess(guess); //why does passing currentGuess result in undefined?
     setGuess('');
     console.info({ guess });
-    console.log(savedGuess);
   }
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
