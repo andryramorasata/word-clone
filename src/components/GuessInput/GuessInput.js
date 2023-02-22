@@ -4,8 +4,9 @@ function GuessInput({ handleSubmitGuess }) {
   const [guess, setGuess] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
+    //let currentGuess = event.target.value;
     setGuess(event.target.value);
-    handleSubmitGuess(guess); //why does passing currentGuess result in undefined?
+    handleSubmitGuess(guess); //why does passing currentGuess instead,result in undefined?
     setGuess('');
     console.info({ guess });
   }
