@@ -15,7 +15,7 @@ console.info({ answer });
 function Game() {
   let initial_state = [];
   range(6).map((_) => {
-    return initial_state.push('     ');
+    return initial_state.push('     '); //don't need string with 5 spaces could have easily been undefined and styling would have worked
   });
   const [guesses, setGuesses] = React.useState(initial_state);
   const [numOfGuesses, setNumOfGuesses] = React.useState(0);
