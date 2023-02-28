@@ -5,7 +5,7 @@ function GuessInput({ handleSubmitGuess }) {
   function handleSubmit(event) {
     event.preventDefault();
     //let currentGuess = event.target.value;
-    setGuess(event.target.value);
+
     handleSubmitGuess(guess); //why does passing currentGuess instead,result in undefined?
     setGuess('');
     console.info({ guess });
