@@ -6,9 +6,14 @@ function Guess({ row_val }) {
     <>
       {range(5).map((idx) => {
         return (
-          <span key={idx} className="cell">
+          <span
+            key={idx}
+            className={`cell ${
+              row_val ? `${row_val[idx].status}` : ''
+            }`}
+          >
             {' '}
-            {row_val ? row_val[idx] : undefined}{' '}
+            {row_val ? row_val[idx].letter : undefined}{' '}
           </span>
         );
       })}
