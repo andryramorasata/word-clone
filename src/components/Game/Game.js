@@ -16,12 +16,8 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
   const [isDone, setDone] = React.useState('');
 
-  function checkGameStatus(guessResult, nextGuesses) {
-    let num_of_correct_chars = guessResult.filter((item) => {
-      return item.status === 'correct';
-    });
-
-    if (num_of_correct_chars.length === 5) {
+  function checkGameStatus(guessInput, nextGuesses) {
+    if (guessInput === answer) {
       setDone('won');
     }
 
@@ -35,7 +31,7 @@ function Game() {
   function handleSubmitGuess(guess) {
     let result = checkGuess(guess, answer);
     let nextGuess = [...guesses, result];
-    checkGameStatus(result, nextGuess);
+    checkGameStatus(guess, nextGuess);
     setGuesses(nextGuess);
   }
 
